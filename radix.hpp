@@ -62,7 +62,7 @@ void hartley(double *x, Ct *X, int *Ia, Cx *E, int N, int b, bool cond) {
     Cx *Eb;
     Cx *Ef = E + (N*b)/4;
 
-    If = Ia + N;
+    If = Ia + N*b;
     //for(l = 0; l < Q; l++) {
 
         Xn = X;
@@ -100,7 +100,7 @@ void hartley(double *x, Ct *X, int *Ia, Cx *E, int N, int b, bool cond) {
             }
 
         } else {
-            for(I = Ia; I != If; I += 8) {
+            for(I = Ia; I != If; I += 8*b) {
                 A = x[ I[4*b] ] + x[ I[7*b] ];
                 B = x[ I[6*b] ] + x[ I[5*b] ];
                 C = x[ I[2*b] ] + x[ I[3*b] ];
