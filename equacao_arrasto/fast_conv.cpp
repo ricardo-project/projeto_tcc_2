@@ -11,6 +11,7 @@ int main() {
     system("color 4f");
     setlocale(LC_ALL, "Portuguese");
     srand(time(0));
+    cout << setprecision(15);
 
     int i, j, k;
     int Nmx = 1024;
@@ -35,7 +36,10 @@ int main() {
             v1 += x[j]*E[(j*i) % N].a.c;
             v2 += x[j]*E[(j*i) % N].a.s;
         }
-        //k += int(abs(v1 - X[i].c) < 1e-10 && abs(v2 - X[i].s) < 1e-10);
+        k += int(abs(v1 - X[i].c) < 1e-10 && abs(v2 - X[i].s) < 1e-10);
+        //cout << i << ": " << v1 << " :: " << X[i].c << " | " << v2 << " :: " << X[i].s;
+        //if(i % 16 == 15) getchar();
+        //else cout << endl;
     }
     cout << "Quantidade: " << k << " (" << (N2 + 1) << ")\n";
     return 0;
